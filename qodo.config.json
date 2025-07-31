@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "name": "lint",
+      "command": "npx eslint .",
+      "description": "Run ESLint for code style and errors"
+    },
+    {
+      "name": "test",
+      "command": "npx playwright test",
+      "description": "Run Playwright tests"
+    },
+    {
+      "name": "format",
+      "command": "npx prettier --check .",
+      "description": "Check code formatting with Prettier"
+    },
+    {
+      "name": "security",
+      "command": "npx npm audit --audit-level=high",
+      "description": "Check for security vulnerabilities in dependencies"
+    },
+    {
+      "name": "deps",
+      "command": "npx npm outdated",
+      "description": "Check for outdated dependencies"
+    },
+    {
+      "name": "structure",
+      "command": "test -d tests && test -d tests/pageObjects && test -d tests/fixtures && test -d tests/utils",
+      "description": "Check project structure for required folders"
+    },
+    {
+      "name": "git-status",
+      "command": "git status --porcelain",
+      "description": "Check for uncommitted changes in git"
+    },
+    {
+      "name": "typecheck",
+      "command": "npx tsc --noEmit",
+      "description": "Run TypeScript type checking (if tsconfig.json exists)",
+      "optional": true
+    }
+  ]
+}
