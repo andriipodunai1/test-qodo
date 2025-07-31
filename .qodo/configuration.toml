@@ -1,0 +1,53 @@
+[config]
+# Language for AI-generated output
+response_language = "en-US"
+
+# Maximum log verbosity
+log_level = "DEBUG"
+
+# Extra context around patch changes
+patch_extra_lines_before = 100
+patch_extra_lines_after = 100
+
+# Do not ignore anything
+ignore_pr_title = []
+ignore_pr_source_branches = []
+ignore_pr_target_branches = []
+ignore_pr_labels = []
+ignore_pr_authors = []
+ignore_repositories = []
+allow_only_specific_folders = []
+
+# Ignore auto-generated files by frameworks
+ignore_language_framework = ["protobuf", "openapi", "graphql", "swagger", "thrift", "sqlc"]
+
+# Ignore tickets with these labels (set none for now)
+ignore_ticket_labels = []
+
+# Example: exclude unnecessary files using glob and regex
+[ignore]
+glob = [
+  "*.lock",
+  "vendor/**",
+  "dist/**",
+  "build/**",
+  "*.min.js",
+  "*.min.css",
+  "node_modules/**"
+]
+regex = [
+  ".*\\.lock$",
+  ".*\\.min\\.js$",
+  ".*\\.min\\.css$",
+  "^node_modules/",
+  "^dist/",
+  "^build/"
+]
+
+# Enable LangSmith (optional debugging observability)
+[litellm]
+enable_callbacks = true
+success_callback = ["langsmith"]
+failure_callback = ["langsmith"]
+service_callback = []
+
